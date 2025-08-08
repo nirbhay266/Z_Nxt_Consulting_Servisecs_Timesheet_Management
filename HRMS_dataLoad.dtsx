@@ -1,0 +1,1630 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/20/2025 4:14:30 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="MM"
+  DTS:CreatorName="MM\MAINAK MUKHERJEE"
+  DTS:DTSID="{1877C58E-F9A5-4952-97D7-2E8BB3884D63}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.2"
+  DTS:LocaleID="16393"
+  DTS:MaxErrorCount="10"
+  DTS:ObjectName="HRMS_DataLoad"
+  DTS:PackageType="5"
+  DTS:VersionBuild="164"
+  DTS:VersionGUID="{0F486D39-D3A5-4CD0-9A98-D0AA1C27A5C0}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[NoMatchConnection]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{17E5D91F-1069-4A0D-8C41-A0505330DB39}"
+      DTS:ObjectName="NoMatchConnection">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::NoMatchFilePath]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="16393"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\MAINAK MUKHERJE\Desktop\Z-Nxt C-S\Timesheet\No Match\SS20220101_2025_8_8.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EmployeeCode"
+              DTS:DTSID="{1B7EACDC-D23D-44E3-948D-3C40B8D6599F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Attendance"
+              DTS:DTSID="{E84A2DE7-9AFD-40EC-9B0F-D2B059D91615}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Date"
+              DTS:DTSID="{DEC3D7DF-AF65-4793-A794-4BB2EA36649F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Isworkingday"
+              DTS:DTSID="{8586372A-25BB-4409-96A5-DBC1BC007B09}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LeaveType"
+              DTS:DTSID="{130C7ADC-3E78-4970-8437-A04D9B78D126}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="New_EmployeeCode"
+              DTS:DTSID="{F5E1A340-BD6A-40AD-AE77-1C5554974A81}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="20"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Leave"
+              DTS:DTSID="{5E68A436-F7D6-40F0-8763-17F7CC78DD0B}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SQLConn]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{20AE6E1E-31C6-489E-9FCD-7A508810DFAC}"
+      DTS:ObjectName="SQLConn">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=NIRBHAY_KUMAR\SQLEXPRESS01;Initial Catalog=Z_NXT_CONSULTING_SERVICES;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-HRMS_DataLoad-{20AE6E1E-31C6-489E-9FCD-7A508810DFAC}SQLConn;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[TimesheetSource]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{8187C4E8-CA61-40D2-8D67-AC31DCA27F4C}"
+      DTS:ObjectName="TimesheetSource">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::FullFilePath]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="16393"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\MAINAK MUKHERJE\Desktop\Z-Nxt C-S\Timesheet\SS20220101.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EmployeeCode"
+              DTS:DTSID="{DF38C9F2-26A3-410F-B01F-30F16581B639}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Date"
+              DTS:DTSID="{6F66CDFB-613F-401D-BE0F-25670F02141D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Attendance"
+              DTS:DTSID="{24579125-2712-4371-A2E7-0B2CD2D527C2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Isworkingday"
+              DTS:DTSID="{2F0116C2-7952-41CC-B98D-7941360F97D6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LeaveType"
+              DTS:DTSID="{122303D5-94E3-49D0-825B-9ED40CC4C91A}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{7D57DF83-6305-49C3-8554-B0378F098E54}"
+      DTS:ObjectName="FilePath">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">C:\Users\MAINAK MUKHERJE\Desktop\Z-Nxt C-S\Timesheet\</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4253A2CD-E916-41FF-83D0-3F791A862148}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="fileName">
+      <DTS:VariableValue
+        DTS:DataType="8">SS20220101</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{55091948-093B-49ED-BC78-A201F75BBFE8}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::FilePath]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FilePath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\MAINAK MUKHERJE\Desktop\Z-Nxt C-S\Timesheet\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2EB0FAF3-D112-4A95-99D7-4B3F7E6A0E21}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::FilePath] + &quot;Archive\\&quot;+@[User::fileName]+ &quot;_&quot;+ (DT_WSTR,4) YEAR(GETDATE())+&quot;_&quot;+ (DT_WSTR,4) DATEPART( &quot;mm&quot; , GETDATE()) +&quot;_&quot;+ (DT_WSTR,4) DATEPART( &quot;dd&quot; , GETDATE()) +&quot;.csv&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FullArchivePath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\MAINAK MUKHERJE\Desktop\Z-Nxt C-S\Timesheet\Archive\SS20220101_2025_8_8.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D7AE955D-5530-40F4-A157-AB4BCDF2547A}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::FilePath] + @[User::fileName] + &quot;.csv&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FullFilePath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\MAINAK MUKHERJE\Desktop\Z-Nxt C-S\Timesheet\SS20220101.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{516F4BF2-C294-4CE6-9496-38D809E1DA69}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Month">
+      <DTS:VariableValue
+        DTS:DataType="3">4</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{22579AE3-CBB5-4B58-BCDD-B5C0544B7D8C}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::FilePath]+&quot;No Match\\&quot;+ @[User::fileName]+ &quot;_&quot;+ (DT_WSTR,4) YEAR(GETDATE())+&quot;_&quot;+ (DT_WSTR,4) DATEPART( &quot;mm&quot; , GETDATE()) +&quot;_&quot;+ (DT_WSTR,4) DATEPART( &quot;dd&quot; , GETDATE()) +&quot;.csv&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="NoMatchFilePath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\MAINAK MUKHERJE\Desktop\Z-Nxt C-S\Timesheet\No Match\SS20220101_2025_8_8.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{225420B2-54A6-45EE-B2BC-AB183384CC49}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Year">
+      <DTS:VariableValue
+        DTS:DataType="3">2025</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{42DA3244-2122-4EF8-AAFB-C88061C2F640}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{CE9B88A9-6371-49B6-95AA-9507F2D6E076}"
+        DTS:ObjectName="{CE9B88A9-6371-49B6-95AA-9507F2D6E076}">
+        <DTS:PropertyExpression
+          DTS:Name="Directory">@[User::FilePath]</DTS:PropertyExpression>
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="C:\Users\MAINAK MUKHERJE\Desktop\Z-Nxt C-S\Timesheet\" />
+            <FEFEProperty
+              FileSpec="*.csv*" />
+            <FEFEProperty
+              FileNameRetrievalType="2" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Data Flow Task"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{E425AA79-1A76-4F4F-A49E-AC2A9385282B}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Foreach Loop Container\Data Flow Task\Datatype Casting for Column EmployeeCode"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Datatype Casting for Column EmployeeCode"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\Data Flow Task\Datatype Casting for Column EmployeeCode.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Datatype Casting for Column EmployeeCode.Inputs[Derived Column Input].Columns[Attendance]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Attendance"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Output].Columns[Attendance]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Datatype Casting for Column EmployeeCode.Inputs[Derived Column Input].Columns[EmployeeCode]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="EmployeeCode"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Output].Columns[EmployeeCode]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Datatype Casting for Column EmployeeCode.Inputs[Derived Column Input].Columns[Isworkingday]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Isworkingday"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Output].Columns[Isworkingday]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Datatype Casting for Column EmployeeCode.Inputs[Derived Column Input].Columns[Date]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Date"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Output].Columns[Date]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task\Datatype Casting for Column EmployeeCode.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Foreach Loop Container\Data Flow Task\Datatype Casting for Column EmployeeCode.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Datatype Casting for Column EmployeeCode.Outputs[Derived Column Output].Columns[Leave]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Datatype Casting for Column EmployeeCode.Outputs[Derived Column Output].Columns[Leave]"
+                          name="Leave"
+                          precision="19"
+                          scale="2"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_I4)#{Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Output].Columns[Isworkingday]} == 1 ? 1 - (DT_NUMERIC,18,2)#{Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Output].Columns[Attendance]} : 0.00</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_I4)Isworkingday == 1 ? 1 - (DT_NUMERIC,18,2)Attendance : 0.00</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Datatype Casting for Column EmployeeCode.Outputs[Derived Column Output].Columns[NewEmployeeCode]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Datatype Casting for Column EmployeeCode.Outputs[Derived Column Output].Columns[NewEmployeeCode]"
+                          name="NewEmployeeCode"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_WSTR,50)#{Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Output].Columns[EmployeeCode]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_WSTR,50)EmployeeCode</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Datatype Casting for Column EmployeeCode.Outputs[Derived Column Output].Columns[NewDate]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Datatype Casting for Column EmployeeCode.Outputs[Derived Column Output].Columns[NewDate]"
+                          name="NewDate"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">#{Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Output].Columns[Date]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">Date</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task\Datatype Casting for Column EmployeeCode.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Foreach Loop Container\Data Flow Task\Datatype Casting for Column EmployeeCode.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Datatype Casting for Column EmployeeCode.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Datatype Casting for Column EmployeeCode.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Datatype Casting for Column EmployeeCode.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Datatype Casting for Column EmployeeCode.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\Data Flow Task\EmployeeId Lookup"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="EmployeeId Lookup"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select EmployeeID,EmployeeCode from Employee</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (Select EmployeeID,EmployeeCode from Employee) [refTable]
+where [refTable].[EmployeeCode] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="EmployeeID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="EmployeeCode" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\Foreach Loop Container\Data Flow Task\Datatype Casting for Column EmployeeCode.Outputs[Derived Column Output].Columns[NewEmployeeCode]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\Data Flow Task\EmployeeId Lookup.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[SQLConn]"
+                      connectionManagerRefId="Package.ConnectionManagers[SQLConn]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\Data Flow Task\EmployeeId Lookup.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\EmployeeId Lookup.Inputs[Lookup Input].Columns[NewEmployeeCode]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="NewEmployeeCode"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Datatype Casting for Column EmployeeCode.Outputs[Derived Column Output].Columns[NewEmployeeCode]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">EmployeeCode</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task\EmployeeId Lookup.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\Foreach Loop Container\Data Flow Task\EmployeeId Lookup.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\EmployeeId Lookup.Outputs[Lookup Match Output].Columns[EmployeeID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\EmployeeId Lookup.Outputs[Lookup Match Output].Columns[EmployeeID]"
+                          name="EmployeeID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">EmployeeID</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\EmployeeId Lookup.Outputs[Lookup Match Output].Columns[EmployeeCode]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Copy Column"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\EmployeeId Lookup.Outputs[Lookup Match Output].Columns[EmployeeCode]"
+                          name="EmployeeCode"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">EmployeeCode</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task\EmployeeId Lookup.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\Foreach Loop Container\Data Flow Task\EmployeeId Lookup.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task\EmployeeId Lookup.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\Foreach Loop Container\Data Flow Task\EmployeeId Lookup.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\EmployeeId Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\EmployeeId Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\EmployeeId Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\EmployeeId Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination"
+                  componentClassID="Microsoft.FlatFileDestination"
+                  contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Destination"
+                  localeId="16393"
+                  name="Flat File Destination"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether the data will overwrite or append to the destination file."
+                      name="Overwrite">true</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the text to write to the destination file before any data is written."
+                      expressionType="Notify"
+                      name="Header" />
+                    <property
+                      dataType="System.Boolean"
+                      description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                      name="EscapeQualifier">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[NoMatchConnection]"
+                      connectionManagerRefId="Package.ConnectionManagers[NoMatchConnection]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input]"
+                      hasSideEffects="true"
+                      name="Flat File Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[EmployeeCode]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="EmployeeCode"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[EmployeeCode]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Output].Columns[EmployeeCode]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[Attendance]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Attendance"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Attendance]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Output].Columns[Attendance]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[Date]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Date"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Date]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Output].Columns[Date]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[Isworkingday]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Isworkingday"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Isworkingday]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Output].Columns[Isworkingday]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[LeaveType]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="LeaveType"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[LeaveType]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Output].Columns[LeaveType]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[NewEmployeeCode]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="NewEmployeeCode"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[New_EmployeeCode]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Datatype Casting for Column EmployeeCode.Outputs[Derived Column Output].Columns[NewEmployeeCode]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[Leave]"
+                          cachedDataType="numeric"
+                          cachedName="Leave"
+                          cachedPrecision="19"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Leave]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Datatype Casting for Column EmployeeCode.Outputs[Derived Column Output].Columns[Leave]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[EmployeeCode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="EmployeeCode" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Attendance]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Attendance" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Date]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Date" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Isworkingday]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Isworkingday" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[LeaveType]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="LeaveType" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[New_EmployeeCode]"
+                          dataType="wstr"
+                          length="10"
+                          name="New_EmployeeCode" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Leave]"
+                          dataType="i8"
+                          name="Leave" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Timesheet]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[SQLConn]"
+                      connectionManagerRefId="Package.ConnectionManagers[SQLConn]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Attendance]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Attendance"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Attendance]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Output].Columns[Attendance]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Isworkingday]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Isworkingday"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Isworkingday]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Output].Columns[Isworkingday]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LeaveType]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="LeaveType"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LeaveType]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Output].Columns[LeaveType]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Leave]"
+                          cachedDataType="numeric"
+                          cachedName="Leave"
+                          cachedPrecision="19"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Leave]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Datatype Casting for Column EmployeeCode.Outputs[Derived Column Output].Columns[Leave]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[EmployeeID]"
+                          cachedDataType="i4"
+                          cachedName="EmployeeID"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EmployeeId]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\EmployeeId Lookup.Outputs[Lookup Match Output].Columns[EmployeeID]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NewDate]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="NewDate"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Datatype Casting for Column EmployeeCode.Outputs[Derived Column Output].Columns[NewDate]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EmployeeId]"
+                          dataType="i4"
+                          name="EmployeeId" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                          dataType="wstr"
+                          length="10"
+                          name="Date" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Attendance]"
+                          dataType="numeric"
+                          name="Attendance"
+                          precision="18"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Isworkingday]"
+                          dataType="i4"
+                          name="Isworkingday" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LeaveType]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="LeaveType" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Leave]"
+                          dataType="numeric"
+                          name="Leave"
+                          precision="18"
+                          scale="2" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\Data Flow Task\Source for timesheet"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="16393"
+                  name="Source for timesheet"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[TimesheetSource]"
+                      connectionManagerRefId="Package.ConnectionManagers[TimesheetSource]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Output].Columns[EmployeeCode]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Output].ExternalColumns[EmployeeCode]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Output].Columns[EmployeeCode]"
+                          name="EmployeeCode"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Output].Columns[Attendance]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Output].ExternalColumns[Attendance]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Output].Columns[Attendance]"
+                          name="Attendance"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Output].Columns[Date]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Output].ExternalColumns[Date]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Output].Columns[Date]"
+                          name="Date"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Output].Columns[Isworkingday]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Output].ExternalColumns[Isworkingday]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Output].Columns[Isworkingday]"
+                          name="Isworkingday"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Output].Columns[LeaveType]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Output].ExternalColumns[LeaveType]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Output].Columns[LeaveType]"
+                          name="LeaveType"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Output].ExternalColumns[EmployeeCode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="EmployeeCode" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Output].ExternalColumns[Attendance]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Attendance" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Output].ExternalColumns[Date]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Date" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Output].ExternalColumns[Isworkingday]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Isworkingday" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Output].ExternalColumns[LeaveType]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="LeaveType" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Foreach Loop Container\Data Flow Task.Paths[Derived Column Output]"
+                  endId="Package\Foreach Loop Container\Data Flow Task\EmployeeId Lookup.Inputs[Lookup Input]"
+                  name="Derived Column Output"
+                  startId="Package\Foreach Loop Container\Data Flow Task\Datatype Casting for Column EmployeeCode.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Foreach Loop Container\Data Flow Task.Paths[Flat File Source Output]"
+                  endId="Package\Foreach Loop Container\Data Flow Task\Datatype Casting for Column EmployeeCode.Inputs[Derived Column Input]"
+                  name="Flat File Source Output"
+                  startId="Package\Foreach Loop Container\Data Flow Task\Source for timesheet.Outputs[Flat File Source Output]" />
+                <path
+                  refId="Package\Foreach Loop Container\Data Flow Task.Paths[Lookup Match Output]"
+                  endId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Lookup Match Output"
+                  startId="Package\Foreach Loop Container\Data Flow Task\EmployeeId Lookup.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\Foreach Loop Container\Data Flow Task.Paths[Lookup No Match Output]"
+                  endId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input]"
+                  name="Lookup No Match Output"
+                  startId="Package\Foreach Loop Container\Data Flow Task\EmployeeId Lookup.Outputs[Lookup No Match Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\File System Task"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{A2719F78-C785-42D2-8175-D64EDBC2EAA1}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="File System Task"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="MoveFile"
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="User::FullFilePath"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="User::FullArchivePath"
+              TaskIsDestinationVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{B692A11F-93ED-4D5C-BA4E-8A33A57E23B9}"
+          DTS:From="Package\Foreach Loop Container\Data Flow Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Foreach Loop Container\File System Task" />
+      </DTS:PrecedenceConstraints>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{9075C9E2-9E41-4DFE-809E-4349733A3322}"
+          DTS:ObjectName="{9075C9E2-9E41-4DFE-809E-4349733A3322}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::fileName" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Get_Year_Month_LeaveMaster"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Find Year And Month"
+      DTS:DTSID="{C39179D9-877C-4CEB-97D3-D65C796DACC1}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get_Year_Month_LeaveMaster"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{20AE6E1E-31C6-489E-9FCD-7A508810DFAC}"
+          SQLTask:SqlStatementSource="sp_GetYearMonthLeavemaster ?,?"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="Year"
+            SQLTask:DtsVariableName="User::Year" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="Month"
+            SQLTask:DtsVariableName="User::Month" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::Year"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::Month"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Leave_Master Data Insert"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Insert data into Leave_Master"
+      DTS:DTSID="{03DA7B0D-FB1B-4600-A6A1-EB54D91FC464}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Leave_Master Data Insert"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{20AE6E1E-31C6-489E-9FCD-7A508810DFAC}"
+          SQLTask:SqlStatementSource="exec sp_InsertLeaveMaster ?,?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::Year"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::Month"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{3DB51964-51AE-4FB5-A108-4FCAA49E6284}"
+      DTS:From="Package\Foreach Loop Container"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Get_Year_Month_LeaveMaster" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{477D6639-74E0-4A46-A7A0-15BADE3C9779}"
+      DTS:From="Package\Get_Year_Month_LeaveMaster"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Leave_Master Data Insert" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="153.333333333334,42.6666666666667"
+          Id="Package\Foreach Loop Container\Data Flow Task"
+          TopLeft="20.6333259117275,10.2666655939156" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Foreach Loop Container\File System Task"
+          TopLeft="197.299982925754,49.2666653227144" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          TopLeft="173.966659245061,31.5999989272489">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="23.3333236806931,38.6666663954655"
+              Start="0,0"
+              End="15.8333236806931,38.6666663954655">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="7.66666184034656,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7.66666184034656,0"
+                    Point2="11.6666618403466,0"
+                    Point3="11.6666618403466,4" />
+                  <mssgle:LineSegment
+                    End="11.6666618403466,34.6666663954655" />
+                  <mssgle:CubicBezierSegment
+                    Point1="11.6666618403466,34.6666663954655"
+                    Point2="11.6666618403466,38.6666663954655"
+                    Point3="15.6666618403466,38.6666663954655" />
+                  <mssgle:LineSegment
+                    End="15.8333236806931,38.6666663954655" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="429.333333333334,214.666666666667"
+          Size="429.333333333334,258"
+          Id="Package\Foreach Loop Container"
+          TopLeft="45.4166635022393,32.0927319133444" />
+        <NodeLayout
+          Size="222.666666666667,42"
+          Id="Package\Get_Year_Month_LeaveMaster"
+          TopLeft="464.999974593521,409.066663822068" />
+        <NodeLayout
+          Size="198,42"
+          Id="Package\Leave_Master Data Insert"
+          TopLeft="231.666654008958,402.999997197588" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="260.083330168906,290.092731913344">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="316.249977757948,118.973931908724"
+              Start="0,0"
+              End="316.249977757948,111.473931908724">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.4869659543618" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,55.4869659543618"
+                    Point2="0,59.4869659543618"
+                    Point3="4,59.4869659543618" />
+                  <mssgle:LineSegment
+                    End="312.249977757948,59.4869659543618" />
+                  <mssgle:CubicBezierSegment
+                    Point1="312.249977757948,59.4869659543618"
+                    Point2="316.249977757948,59.4869659543618"
+                    Point3="316.249977757948,63.4869659543618" />
+                  <mssgle:LineSegment
+                    End="316.249977757948,111.473931908724" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="464.999974593521,426.833330509828">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-35.7333205845633,0"
+              Start="0,0"
+              End="-28.2333205845633,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-28.2333205845633,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Foreach Loop Container\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="177.333333333334,42"
+          Id="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination"
+          TopLeft="292.349997485429,318.51052622564" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Foreach Loop Container\Data Flow Task\Flat File Destination"
+          TopLeft="41.5416650389219,302.089473774361" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\Foreach Loop Container\Data Flow Task\Source for timesheet"
+          TopLeft="211.725001536682,1.39473688718019" />
+        <NodeLayout
+          Size="286,42"
+          Id="Package\Foreach Loop Container\Data Flow Task\Datatype Casting for Column EmployeeCode"
+          TopLeft="152.175004163012,93.4157896239341" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Foreach Loop Container\Data Flow Task\EmployeeId Lookup"
+          TopLeft="171.550004190951,177.226316135048" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Data Flow Task.Paths[Lookup Match Output]"
+          TopLeft="283.550004190951,219.226316135048">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="97.4666599611443,99.2842100905911"
+              Start="0,0"
+              End="97.4666599611443,91.7842100905911">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.2691201766034" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.2691201766034"
+                    Point2="0,40.2691201766034"
+                    Point3="4,40.2691201766034" />
+                  <mssgle:LineSegment
+                    End="93.4666599611443,40.2691201766034" />
+                  <mssgle:CubicBezierSegment
+                    Point1="93.4666599611443,40.2691201766034"
+                    Point2="97.4666599611443,40.2691201766034"
+                    Point3="97.4666599611443,44.2691201766034" />
+                  <mssgle:LineSegment
+                    End="97.4666599611443,91.7842100905911" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0.541943261822162,45.2691201766034,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Data Flow Task.Paths[Flat File Source Output]"
+          TopLeft="296.950002849847,43.3947368871802">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50.0210527367539"
+              Start="0,0"
+              End="0,42.5210527367539">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.5210527367539" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Data Flow Task.Paths[Derived Column Output]"
+          TopLeft="295.175004163012,135.415789623934">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-38.6249999720603,41.8105265111143"
+              Start="0,0"
+              End="-38.6249999720603,34.3105265111143">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.9052632555572" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.9052632555572"
+                    Point2="0,20.9052632555572"
+                    Point3="-4,20.9052632555572" />
+                  <mssgle:LineSegment
+                    End="-34.6249999720603,20.9052632555572" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-34.6249999720603,20.9052632555572"
+                    Point2="-38.6249999720603,20.9052632555572"
+                    Point3="-38.6249999720603,24.9052632555572" />
+                  <mssgle:LineSegment
+                    End="-38.6249999720603,34.3105265111143" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Data Flow Task.Paths[Lookup No Match Output]"
+          TopLeft="229.550004190951,219.226316135048">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-103.00833915203,82.8631576393121"
+              Start="0,0"
+              End="-103.00833915203,75.3631576393121">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.6088331683923" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.6088331683923"
+                    Point2="0,33.6088331683923"
+                    Point3="-4,33.6088331683923" />
+                  <mssgle:LineSegment
+                    End="-99.0083391520296,33.6088331683923" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-99.0083391520296,33.6088331683923"
+                    Point2="-103.00833915203,33.6088331683923"
+                    Point3="-103.00833915203,37.6088331683923" />
+                  <mssgle:LineSegment
+                    End="-103.00833915203,75.3631576393121" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-107.310556294765,38.6088331683923,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Foreach Loop Container\Data Flow Task\EmployeeId Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
