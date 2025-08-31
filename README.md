@@ -1,32 +1,84 @@
-# Z_Nxt Consulting Services – Timesheet & Payroll Management System
+# 🕒 Timesheet Management System - Z_Nxt_Consulting_Servisecs  
 
-A complete **Timesheet and Payroll Management Solution** for **Z_Nxt Consulting Services**.  
-This system automates the flow from **employee timesheet data** to **leave management** and finally to **salary slip generation**.
-
-Built using **SSIS (ETL)**, **SQL Server (Database + Stored Procedures)**, and **SSRS (Reporting)**.
-
----
-
-## 📖 Overview
-
-Managing employee timesheets, leave records, and payroll manually is inefficient and error-prone.  
-This project provides an automated pipeline:
-
-- Timesheet data from Excel → SQL Server using **SSIS**
-- Leave data automatically recorded in **Leave_Master**
-- Payroll data combined with employee & company details
-- **SSRS report** generates professional **Pay Slips** in PDF format
+## 📌 Overview  
+This project is developed for **Z_Nxt_Consulting_Servisecs** to automate and streamline the **Timesheet & Payroll Management** process.  
+The system integrates **SSIS, SQL Server (SSMS), and SSRS** to provide a complete solution for:  
+- Employee Timesheet Tracking  
+- Leave Management (EL/CL)  
+- Salary Slip Generation  
 
 ---
 
-## 🏗️ System Architecture
+## 🚀 Key Features  
+- **Automated Data Load**: Excel-based timesheet data is automatically loaded into SQL Server using **SSIS**.  
+- **Leave Management**: Stored Procedures process and update employee leave data (Casual Leave, Earned Leave, etc.).  
+- **Payroll & Employee Details**: Consolidates employee salary, company, and client details for payroll processing.  
+- **SSRS Reporting**: Generates professional salary slips for all employees.  
 
-```mermaid
-flowchart TD
-    A[Excel Timesheet File] -->|SSIS Package: HRMS_dataLoad.dtsx| B[Staging Table: Timesheet_Staging]
-    B -->|Validation & Merge| C[Timesheet Table]
-    C -->|SP: sp_UpsertLeaveMaster| D[Leave_Master Table]
-    C -->|SP: sp_GetPayslipData| E[Salary + Employee + Company Data]
-    D --> E
-    E -->|Dataset| F[SSRS Report: PaySlip_Report.rdl]
-    F --> G[Employee Salary Slip (PDF)]
+---
+
+## 📊 Data Flow Structure  
+
+The following diagram explains the end-to-end data flow:  
+
+![Timesheet Data Flow](timesheet_data_flow.png)  
+
+### 🔄 Flow Explanation
+1. **Excel Timesheet File** → Source of employee work & attendance data.  
+2. **SSIS Package** → Extracts, Transforms, and Loads (ETL) data into SQL Server staging.  
+3. **Timesheet Table** → Stores validated timesheet data.  
+4. **Stored Procedure (sp_UpsertLeaveMaster)** → Updates leave details into **Leave_Master Table**.  
+5. **Stored Procedure (sp_GetPayslipData)** → Prepares salary, leave, and employee details.  
+6. **SSRS Report (PaySlip_Report.rdl)** → Generates formatted Salary Slip.  
+7. **Employee Salary Slip (PDF/Excel)** → Final output distributed to employees.  
+
+---
+
+## 🛠️ Tech Stack  
+- **ETL Tool**: SQL Server Integration Services (**SSIS**)  
+- **Database**: SQL Server Management Studio (**SSMS**)  
+- **Reporting Tool**: SQL Server Reporting Services (**SSRS**)  
+- **Languages**: T-SQL (Stored Procedures, Queries)  
+- **Data Source**: Excel Timesheet Files  
+
+---
+
+## 📂 Project Structure  
+├── SSIS_Packages/
+│ └── HRMS_dataLoad.dtsx
+├── SQL_Scripts/
+│ ├── Create_Tables.sql
+│ ├── sp_UpsertLeaveMaster.sql
+│ └── sp_GetPayslipData.sql
+├── SSRS_Reports/
+│ └── PaySlip_Report.rdl
+├── Sample_Data/
+│ └── Timesheet_Sample.xlsx
+├── timesheet_data_flow.png
+└── README.md    
+
+
+---
+
+## 📜 How It Works  
+1. HR uploads **Excel Timesheet File**.  
+2. **SSIS Package** runs to insert data into **Timesheet Table**.  
+3. Stored Procedure updates **Leave_Master Table**.  
+4. Payroll procedure generates employee salary and leave details.  
+5. **SSRS Report** produces **Salary Slip** for each employee.  
+
+---
+
+## 📈 Output (Example: Salary Slip)  
+- Employee Personal Details  
+- Company & Client Information  
+- Leave Balance (EL/CL)  
+- Salary Breakdown (Basic, Allowances, Deductions, Net Pay)  
+
+---
+
+## 👨‍💻 Author  
+**Nirbhay Kumar**  
+📧 [LinkedIn](https://www.linkedin.com/in/nirbhay-kumar-32b947262/) | 🌐 GitHub: [nirbhay266](https://github.com/nirbhay266)  
+
+---
