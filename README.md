@@ -21,7 +21,10 @@ The system integrates **SSIS, SQL Server (SSMS), and SSRS** to provide a complet
 
 The following diagram explains the end-to-end data flow:  
 
-![Timesheet Data Flow](./timesheet_data_flow.png) 
+## 📊 Data Flow Diagram  
+
+![Timesheet Data Flow](https://raw.githubusercontent.com/nirbhay266/Z_Nxt_Consulting_Servisecs_Timesheet_Management/main/timesheet_data_flow.png)
+
 
 ### 🔄 Flow Explanation
 1. **Excel Timesheet File** → Source of employee work & attendance data.  
